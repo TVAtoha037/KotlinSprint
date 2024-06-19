@@ -1,16 +1,18 @@
 package org.example.lesson_1
 
+const val DIVISOR_VALUE: Byte = 60
+
 fun main() {
-    val secondsInSpace: UShort = 6480u
 
-    val seconds: UShort = (secondsInSpace % 60u).toUShort()
+    val gagarinSpaceTimeSeconds : Short = 6480
 
-    val minutesInSpace = (secondsInSpace / 60u).toUShort()
-    val minutes: UShort = (minutesInSpace % 60u).toUShort()
+    val allMinutesInSpace: Byte = (gagarinSpaceTimeSeconds / DIVISOR_VALUE).toByte()
 
-    val hours = (minutesInSpace / 60u).toUShort()
+    val secondsInSpace: Byte = (gagarinSpaceTimeSeconds % DIVISOR_VALUE).toByte()
+    val minutesInSpace: Byte = (allMinutesInSpace % DIVISOR_VALUE).toByte()
+    val hoursInSpace: Byte = (allMinutesInSpace / DIVISOR_VALUE).toByte()
 
-    println(String.format("%02d:%02d:%02d", hours.toInt(), minutes.toInt(), seconds.toInt()))
+    println(String.format("%02d:%02d:%02d", hoursInSpace, minutesInSpace, secondsInSpace))
 }
 
 
